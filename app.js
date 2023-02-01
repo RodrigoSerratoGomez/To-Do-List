@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const _ = require("lodash");
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 mongoose.set('strictQuery', false);
 mongoose.connect(
@@ -111,6 +111,6 @@ app.post("/delete", (req, res) => {
 
 });
 
-app.listen(port, () => {
+app.listen(port || 3000, () => {
     console.log(`Puerto aperturado en la ruta ${port}`);
 });
